@@ -1,0 +1,54 @@
+﻿@using Eclatech.eBarn.Web.Resources
+@model Eclatech.eBarn.BusinessObject.UserProfile
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Profile</h2>
+
+
+@using (Html.BeginForm(Actions.USER_MY_PROFILE, Controllers.USER, FormMethod.Post, new Dictionary<string, object>({{ "class", "form-horizontal" }})))
+{
+    <div class="row-fluid">
+        <div class="control-group">
+            @Html.LabelFor(m => m.FirstName, new Dictionary<string, object>({{ "class","control-label"}}))
+            <div class="controls">
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.LastName, new Dictionary<string, object>({{ "class","control-label"}}))
+            <div class="controls">
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.LastName, new Dictionary<string, object>({{ "class","control-label"}}))
+            <div class="controls">
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.DateOfBirth, new Dictionary<string, object>({{ "class","control-label"}}))
+            <div class="controls">
+                @Html.TextBoxFor(m => m.DateOfBirth , new Dictionary<string, object>({{"type","datetime"}}))
+                @Html.ValidationMessageFor(m => m.DateOfBirth)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Image, new Dictionary<string, object>({{ "class","control-label"}}))
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Image , new Dictionary<string, object>({{"type","file"}}))
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>    
+}
